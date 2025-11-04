@@ -1,0 +1,37 @@
+{
+  "name": "@agi/arrival",
+  "version": "0.1.0",
+  "description": "Ted Chiang was right",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --target node && tsc --emitDeclarationOnly",
+    "dev": "bun run --watch src/index.ts",
+    "test": "bun test",
+    "test:watch": "bun test --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/ramda": "^0.31.0",
+    "typescript": "5.9"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "fantasy-land": "^5.0.1",
+    "lips": "^1.0.0-beta.20",
+    "ramda": "^0.31.3",
+    "ramda-adjunct": "^5.1.0"
+  }
+}

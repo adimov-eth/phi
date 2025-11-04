@@ -1,0 +1,27 @@
+{
+  "name": "phi",
+  "version": "0.1.0",
+  "description": "φ - MCP server for filesystem operations via S-expressions",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "bun run --filter '*' build",
+    "dev": "bun run --filter '*' dev"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.9.3"
+  },
+  "keywords": [
+    "mcp",
+    "claude",
+    "filesystem",
+    "s-expressions",
+    "llm-tools"
+  ],
+  "author": "adimov",
+  "license": "MIT"
+}
