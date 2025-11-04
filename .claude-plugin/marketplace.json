@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "phi",
-      "source": ".",
+      "source": "./",
       "description": "φ - Compositional project awareness via S-expressions. Generic infrastructure for persistent codebase understanding through structure, semantics, and memory.",
       "version": "0.1.0",
       "author": {
