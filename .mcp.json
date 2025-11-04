@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "periphery": {
+      "url": "http://localhost:7777/mcp",
+      "transport": "streamable-http",
+      "headers": {
+        "periphery_api_key": "prph-5f27cd471eb9648c0a3081aa4df7900eb05aa167804b21fe78fb59e6427cae74"
+      }
+    }
+  }
+}
