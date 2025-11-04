@@ -1,0 +1,26 @@
+{
+  "name": "@agi/project-mapper",
+  "version": "0.1.0",
+  "description": "TypeScript-based PROJECT-MAP generator for compositional project awareness",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "extract": "node dist/cli.js",
+    "test": "vitest",
+    "test:watch": "vitest --watch"
+  },
+  "dependencies": {
+    "@agi/arrival": "workspace:*",
+    "@typescript-eslint/parser": "^8.0.0",
+    "@typescript-eslint/typescript-estree": "^8.0.0",
+    "glob": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.8"
+  }
+}

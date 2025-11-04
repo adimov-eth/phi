@@ -1,23 +1,38 @@
 # φ (Phi)
 
-MCP server for filesystem operations via S-expressions. Compositional, type-safe filesystem access for Claude Code.
+Compositional project awareness via S-expressions. Claude Code plugin infrastructure for persistent codebase understanding.
+
+**Status:** Built per spec, Claude Code integration untested. CLI tool works (tested on 142-file project). Plugin discovery needs live verification.
 
 ## What is this?
 
-Two MCP tools that let Claude interact with filesystems using S-expressions:
+**φ = ∫(structure × semantics × memory)**
 
-**Ψ (Psi - discover)**: Compositional filesystem queries
-```scheme
-(fmap basename (filter (lambda (f) (string-contains? (read-file f) "TODO")) 
-                        (find-files "**/*.ts")))
-```
+Persistent project awareness through three integrated layers:
+1. **Structure** (deterministic): PROJECT-MAP.auto.scm with AST, exports, imports
+2. **Semantics** (curated): PROJECT-MAP.scm with architecture, patterns, known issues
+3. **Memory** (learned): Vessel cross-session insights and relief-guided patterns
 
-**~ (Tilde - act)**: Atomic batch filesystem operations
-```scheme
-[["mkdir", "src/components/foo"],
- ["write", "src/components/foo/index.ts", "export { Foo } from './Component';"],
- ["write", "src/components/foo/Component.tsx", "..."]]
-```
+**Tools:**
+- **Ψ (Psi - discover)**: Compositional filesystem queries
+- **~ (Tilde - act)**: Atomic batch operations
+
+**Commands:**
+- `/phi analyze`: Quick/full project analysis
+- `/phi map`: Generate/update PROJECT-MAPs
+- `/phi context`: Load complete project context
+- `/phi agents`: Discover project-specific agents
+
+**Skills:**
+- phi-analyzer: Auto-invoked project context
+- phi-mapper: Auto-invoked PROJECT-MAP generation
+
+**Examples:**
+- See `examples/project-agent-template.md` for creating project-specific agents
+
+## Quick Start
+
+See [PLUGIN_INSTALL.md](./PLUGIN_INSTALL.md) for complete installation instructions.
 
 ## Installation as Claude Code Plugin
 
@@ -85,12 +100,41 @@ Tools `mcp__periphery__discover` and `mcp__periphery__act` will be available.
 
 - **@agi/arrival**: S-expression serialization with LIPS Scheme interpreter
 - **@agi/periphery**: MCP server framework + filesystem tools
+- **@agi/project-mapper**: TypeScript AST extraction → PROJECT-MAP.auto.scm generation
 
 ## Environment Variables
 
 - `PORT`: Server port (default: 7777)
 - `PERIPHERY_API_KEY`: Authentication token
 - `MCP_SERVER_URL`: Public URL for server (for tunnels)
+
+## Development Status
+
+**What works (verified):**
+- ✓ CLI tool generates clean S-expressions (tested on XLN: 142 files → 2033 lines)
+- ✓ TypeScript/JavaScript/Solidity/Python extraction
+- ✓ 13 unit tests passing
+- ✓ arrival integration for S-expression formatting
+- ✓ Plugin structure follows Claude Code spec
+- ✓ All frontmatter present (YAML for skills, description for commands)
+
+**What's untested:**
+- ⚠ Claude Code skill auto-discovery (phi-analyzer, phi-mapper)
+- ⚠ Command registration (`/phi map`, `/phi analyze`, etc.)
+- ⚠ MCP server integration with plugin system
+- ⚠ Skill invocation when context matches
+
+**To validate:**
+```bash
+# Test plugin loads
+cd /some/test/project
+claude
+/plugin install phi  # or however local plugins load
+/phi map             # Should invoke phi-mapper skill
+# Verify skills appear in Claude's available capabilities
+```
+
+**Architecture is sound. Integration layer needs observation, not assumption.**
 
 ## License
 
