@@ -1,8 +1,23 @@
 # φ (Phi)
 
-Compositional project awareness via S-expressions. Claude Code plugin infrastructure for persistent codebase understanding.
+Compositional project awareness via S-expressions. Claude Code plugin for persistent codebase understanding.
 
-**Status:** Built per spec, Claude Code integration untested. CLI tool works (tested on 142-file project). Plugin discovery needs live verification.
+**Status:** ✅ Plugin validated. Infrastructure ready. Available for team distribution via GitHub marketplace.
+
+## Quick Start
+
+### Install via Claude Code
+
+```bash
+# In any Claude Code session:
+/plugin marketplace add adimov-eth/phi
+/plugin install phi@phi
+
+# Restart Claude Code
+# phi commands now available: /phi map, /phi analyze, etc.
+```
+
+See [INTEGRATION_GUIDE.md](./INTEGRATION_GUIDE.md) for local setup and [TEAM_DISTRIBUTION.md](./TEAM_DISTRIBUTION.md) for team sharing.
 
 ## What is this?
 
