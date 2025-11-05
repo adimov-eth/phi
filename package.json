@@ -8,6 +8,7 @@
     "packages/*"
   ],
   "scripts": {
+    "start": "bun start.ts",
     "build": "bun run --filter '*' build",
     "dev": "bun run --filter '*' dev"
   },

@@ -219,18 +219,14 @@ ln -s ~/phi ~/.claude/plugins/phi
 
 ```bash
 # On a team server (e.g., dev.company.com)
+git clone https://github.com/adimov-eth/phi.git /opt/phi
 cd /opt/phi
-git clone https://github.com/adimov-eth/phi.git
-cd phi
-bun install && bun run build
+bun start.ts
 
-# Run periphery as service
-cd packages/periphery
-node dist/http-server.js --port 7777
-
-# Or with PM2 for persistence
-pm2 start dist/http-server.js --name phi-periphery
+# Or for background persistence with PM2:
+pm2 start start.ts --name phi-periphery --interpreter bun
 pm2 save
+pm2 startup  # Configure to start on boot
 ```
 
 **Team members update `.mcp.json`:**
@@ -263,8 +259,9 @@ pm2 save
 
 **Each team member runs:**
 ```bash
-cd ~/phi/packages/periphery
-node dist/http-server.js
+git clone https://github.com/adimov-eth/phi.git ~/phi
+cd ~/phi
+bun start.ts
 ```
 
 **Benefits:**
@@ -503,8 +500,9 @@ git push
 ```bash
 # Shared server setup
 git clone https://github.com/adimov-eth/phi.git /opt/phi
-cd /opt/phi && bun install && bun run build
-pm2 start packages/periphery/dist/http-server.js --name phi
+cd /opt/phi
+pm2 start start.ts --name phi-periphery --interpreter bun
+pm2 save
 ```
 
 ---

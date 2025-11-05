@@ -49,25 +49,27 @@ Persistent project awareness through three integrated layers:
 
 See [PLUGIN_INSTALL.md](./PLUGIN_INSTALL.md) for complete installation instructions.
 
-## Installation as Claude Code Plugin
+## Running the MCP Server
 
-### 1. Clone and Build
+### Quick Start (3 commands)
 
 ```bash
 git clone https://github.com/adimov-eth/phi
 cd phi
-bun install
-bun run build
+bun start.ts
 ```
 
-### 2. Run the Server
-
+Or use the shell script (works with npm too):
 ```bash
-cd packages/periphery
-node dist/http-server.js
+./start.sh
 ```
 
 Server runs on `http://localhost:7777` by default.
+
+The startup script automatically:
+- Installs dependencies (first time only)
+- Builds packages (first time only)
+- Starts the periphery HTTP server
 
 ### 3. Configure Claude Code Plugin
 
