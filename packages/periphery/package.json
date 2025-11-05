@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Peripheral nervous system for LLMs - afferent (Ψ observes) and efferent (~ acts) pathways",
   "type": "module",
+  "bin": {
+    "periphery": "./dist/cli.js"
+  },
   "exports": {
     ".": "./dist/index.js",
     "./framework/*": "./dist/framework/*.js",

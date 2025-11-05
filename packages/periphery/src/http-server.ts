@@ -170,8 +170,13 @@ app.use(cors({
   exposedHeaders: ['Mcp-Session-Id'],
 }));
 
-// Token authentication middleware
+// Token authentication middleware (optional for localhost)
 app.use('/mcp', (req, res, next) => {
+  if (process.env.PERIPHERY_NO_AUTH === 'true') {
+    next();
+    return;
+  }
+
   const expectedToken = process.env.PERIPHERY_API_KEY || 'prph-5f27cd471eb9648c0a3081aa4df7900eb05aa167804b21fe78fb59e6427cae74';
   const token = req.headers['periphery_api_key'] as string;
 
